@@ -14,7 +14,7 @@ const Hero = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="animate-fade-in-up flex flex-col items-center">
           <img
-            src="https://media.licdn.com/dms/image/v2/D4E03AQH3ooEgp9owog/profile-displayphoto-shrink_800_800/B4EZPyfKRTGcAc-/0/1734940076705?e=1762387200&v=beta&t=aA7jd5MZbv1VaGyuOwdnok1KVl2zO6x1IfPQ54mm1gc" // make sure this image exists in your public folder
+            src="/Portfolio/latest.jpg" // Profile image in public folder with base path
             alt="Profile"
             className="w-40 h-40 rounded-full object-cover mb-6 shadow-lg border-indigo-600 border-4"
           />
