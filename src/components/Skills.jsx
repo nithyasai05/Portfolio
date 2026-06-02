@@ -1,4 +1,5 @@
 import React from "react";
+import { Monitor, Server, Wrench, Code2 } from "lucide-react";
 
 const Skills = () => {
   const skills = [
@@ -11,12 +12,20 @@ const Skills = () => {
     { name: "Node.js", category: "backend" },
     { name: "MongoDB", category: "backend" },
     { name: "Git", category: "tools" },
+    { name: "Github", category: "tools" },
+    { name: "Aiven", category: "tools" },
+    { name: "Vite", category: "tools" },
     { name: "Netlify", category: "tools" },
+    { name: "Python", category: "programming" },
+    { name: "C Programming", category: "programming" },
+    { name: "Java Script", category: "programming" },
   ];
 
   const frontendSkills = skills.filter((s) => s.category === "frontend");
   const backendSkills = skills.filter((s) => s.category === "backend");
   const toolSkills = skills.filter((s) => s.category === "tools");
+  const programmingSkills = skills.filter((s) => s.category === "programming");
+  
 
   const Badge = ({ children }) => (
     <span className="inline-block bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 px-3 py-1 rounded-full mr-3 mb-3 text-sm">
@@ -39,10 +48,11 @@ const Skills = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
+
           <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg dark:shadow-md">
-            <div className="flex items-center mb-6">
-              <div className="w-3 h-3 bg-blue-500 rounded-full mr-3" />
+            <div className="flex items-center gap-3 mb-6">
+              <Monitor className="text-blue-500" size={28} />
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
                 Frontend
               </h3>
@@ -55,8 +65,8 @@ const Skills = () => {
           </div>
 
           <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg dark:shadow-md">
-            <div className="flex items-center mb-6">
-              <div className="w-3 h-3 bg-teal-500 rounded-full mr-3" />
+            <div className="flex items-center gap-3 mb-6">
+              <Server className="text-teal-500" size={28} />
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
                 Backend
               </h3>
@@ -69,8 +79,8 @@ const Skills = () => {
           </div>
 
           <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg dark:shadow-md">
-            <div className="flex items-center mb-6">
-              <div className="w-3 h-3 bg-purple-500 rounded-full mr-3" />
+            <div className="flex items-center gap-3 mb-6">
+              <Wrench className="text-purple-500" size={28} />
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
                 Tools
               </h3>
@@ -81,6 +91,21 @@ const Skills = () => {
               ))}
             </div>
           </div>
+
+          <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg dark:shadow-md ">
+            <div className="flex items-center gap-3 mb-6">
+              <Code2 className="text-red-500" size={28} />
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                Programming Languages
+              </h3>
+            </div>
+            <div>
+              {programmingSkills.map((skill) => (
+                <Badge key={skill.name}>{skill.name}</Badge>
+              ))}
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

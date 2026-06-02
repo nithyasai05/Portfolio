@@ -1,3 +1,4 @@
+import emailjs from "@emailjs/browser";
 import React, { useState } from "react";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 
@@ -20,31 +21,39 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // prepare message content
-    const { name, email, subject, message } = formData;
-    const phone = "919705590944"; // WhatsApp phone (country code + number, no + or dashes)
-    const toEmail = "nithyasai5a@gmail.com";
 
-    const bodyPlain = `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\n\n${message}`;
+    try {
+      const result = await emailjs.send(
+        "service_3wg9bbo",
+        "template_w37u8ov",
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        "c402eDTcmo99mqzBx"
+      );
 
-    // Let user choose channel: OK -> WhatsApp, Cancel -> Email
-    const sendViaWhatsApp = window.confirm(
-      "Send via WhatsApp? Click OK for WhatsApp, Cancel for Email",
-    );
+      console.log("SUCCESS!", result);
 
-    if (sendViaWhatsApp) {
-      const waUrl = `https://wa.me/${phone}?text=${encodeURIComponent(bodyPlain)}`;
-      window.open(waUrl, "_blank");
-    } else {
-      const mailto = `mailto:${toEmail}?subject=${encodeURIComponent(subject || "Contact from portfolio")}&body=${encodeURIComponent(bodyPlain)}`;
-      // use location.href so email client opens in same tab
-      window.location.href = mailto;
+      alert("✅ Message sent successfully!");
+
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("FAILED...", error);
+
+      alert("❌ Failed to send message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
-
-    setFormData({ name: "", email: "", subject: "", message: "" });
-    setIsSubmitting(false);
   };
-
+  
   return (
     <section
       id="contact"

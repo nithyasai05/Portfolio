@@ -3,101 +3,126 @@ import { ExternalLink, Github } from "lucide-react";
 
 const Projects = () => {
   const projects = [
-    {
+      {
       id: 1,
+      title: "Personal Portfolio Website",
+      description:
+        "A modern personal portfolio website built with React and Tailwind CSS, showcasing projects, skills, and experience with a responsive design and smooth animations.",
+      image:
+        "/Portfolio/portfolio.jpg",
+      technologies: ["React", "Tailwind CSS", "HTML", "Java Script"],
+      liveUrl: "https://nithyasai05.github.io/Portfolio/",
+      githubUrl: "https://github.com/nithyasai05/Portfolio",
+      featured: true,
+    },
+    {
+      id: 2,
+      title: "AI-Based Tourist Safety Monitoring System ",
+      description:
+        "Built a full stack application using React.js, Node.js, and MySQL integrating geo-fencing, real-time GPS tracking, and AI-based anomaly detection.",
+      image:
+        "/Portfolio/travel.jpg",
+      technologies: ["React", "HTML", "Java Script", "Node.js", "MySQL", "AI"],
+      liveUrl: "https://fluffy-kitten-82457d.netlify.app/",
+      githubUrl: "https://github.com/nithyasai05/Smart-Safety-Tourism-App",
+      featured: true,
+    },
+    {
+      id: 3,
       title: "Simple Quiz App",
       description:
         "A fully functional simple quiz application with multiple pages, engaging questions, and progress tracking. it features a modern design and smooth user interactions for an enjoyable quiz experience.",
       image:
-        "https://img.freepik.com/premium-vector/quiz-logo-icon-symbol_101884-1075.jpg",
+        "/Portfolio/simple-quiz.jpg",
       technologies: ["HTML", "CSS", "Java Script"],
       liveUrl: "https://nithyasai05.github.io/simple-quiz/",
       githubUrl: "https://github.com/nithyasai05/simple-quiz/",
       featured: true,
     },
     {
-      id: 2,
+      id: 4,
       title: "2048 Game",
       description:
         "A classic 2048 game built with HTML, CSS and JavaScript. It includes features like tile merging, scoring, and responsive design, allowing players to enjoy the game on the desktop",
-      image: "https://plays.org/categories/2048-games.png",
+      image: "/Portfolio/2048-game.jpg",
       technologies: ["HTML", "CSS", "Java Script"],
       liveUrl: "https://nithyasai05.github.io/2048---Game/",
       githubUrl: "https://github.com/nithyasai05/2048---Game",
       featured: true,
     },
     {
-      id: 3,
+      id: 5,
       title: "To-Do App",
       description:
         "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
       image:
-        "https://img.freepik.com/premium-photo/list-year-banner-empty-notebook-white-table-with-silver-pen-top-view-photo_526934-4140.jpg",
+        "/Portfolio/to-do.jpg",
       technologies: ["HTML", "CSS", "Java Script", "Local Storage"],
       liveUrl: "https://nithyasai05.github.io/To-Do-TaskManager/",
       githubUrl: "https://github.com/nithyasai05/To-Do-TaskManager",
       featured: true,
     },
     {
-      id: 4,
+      id: 6,
       title: "Weather Dashboard",
       description:
         "A beautiful weather dashboard with location-based forecasts, interactive maps, and historical weather data visualization.",
       image:
-        "https://media.istockphoto.com/id/1401609143/vector/weather-forecast-app-paper-clouds.jpg?s=612x612&w=0&k=20&c=Cz5oAfWUzHQMQENkpUAM27kdKTxsxvsn-hRfiyEYYOc=",
+        "/Portfolio/weather-dashboard.jpg",
       technologies: ["HTML", "CSS", "Java Script", "Weather API", "Geolocation"],
       liveUrl: "https://nithyasai05.github.io/Weather-Forecast/",
       githubUrl: "https://github.com/nithyasai05/Weather-Forecast",
       featured: true,
     },
     {
-      id: 5,
+      id: 7,
       title: "Movie Search App",
       description:
         "Built a dynamic movie search app with React, TypeScript, and Tailwind CSS, integrating the OMDB API for real-time movie details. Features include instant search, pagination, infinite scroll, and a responsive, modern UI with robust error handling.",
       image:
-        "https://static.vecteezy.com/system/resources/previews/002/236/321/non_2x/movie-trendy-banner-vector.jpg",
+        "/Portfolio/movie-search.jpg",
       technologies: ["React", "TypeScript", "Tailwind CSS", "HTML", "Movie API"],
       liveUrl: "https://moviez-ns.netlify.app/",
       githubUrl: "https://github.com/nithyasai05/Movie-Search-App/",
       featured: false,
     },
     {
-      id: 6,
+      id: 8,
       title: "Expense Finance Tracker",
       description:
         "A modern group expense tracker built with JavaScript, HTML, and CSS, featuring a dynamic split calculator, intuitive UI, and persistent storage using Local Storage.",
       image:
-        "https://cdn.prod.website-files.com/5dd3ac2a77520f09d34aa5b0/67e699d68ac9015be15e7004_67c06ff1c37d8a3574a263e7_66bc2e88e4e6ee6559821687_64de23d49942022af3a499e7_The%25252520Complete%25252520Guide%25252520for%25252520Manufacturing%25252520Expense%25252520Management%25252520-%25252520Full%25252520Width.png",
+        "/Portfolio/expense-finance-tracker.jpg",
       technologies: ["React", "TypeScript", "Tailwind CSS", "HTML", "Movie API"],
       liveUrl: "https://nithyasai05.github.io/Expense-Finance-Tracker/",
       githubUrl: "https://github.com/nithyasai05/Expense-Finance-Tracker",
       featured: false,
     },
     {
-      id: 7,
+      id: 9,
       title: "Pocket Calendar",
       description:
         "A responsive pocket calendar website built with HTML and CSS, allowing users to navigate months and view the current date with a clean, interactive UI.",
       image:
-        "https://t3.ftcdn.net/jpg/04/29/23/70/360_F_429237076_tXJM3Honjk9QJxa5bJkMilAAt9wavgbe.jpg",
+        "/Portfolio/pocket-calendar.jpg",
       technologies: ["HTML", "CSS", "Java Script", "Local Storage"],
       liveUrl: "https://nithyasai05.github.io/calendar/",
       githubUrl: "https://github.com/nithyasai05/calendar",
       featured: false,
     },
     {
-      id: 8,
+      id: 10,
       title: "Tic Tac Toe",
       description:
         "A classic two-player strategy game where players take turns marking Xs and Os to align three in a row.",
       image:
-        "https://img.freepik.com/premium-vector/back-school-web-banner-chalkboard-with-tic-tac-toe-game-pencils-makes-doodle-vector-image_155957-1602.jpg",
+        "/Portfolio/tic-tac-toe.jpg",
       technologies: ["HTML", "CSS", "Java Script", "Flask (Python)"],
       liveUrl: "https://nithyasai05.github.io/Tic-Tac-Toe-py/",
       githubUrl: "https://github.com/nithyasai05/Tic-Tac-Toe-py",
       featured: false,
-    },
+    }
+
   ];
 
   const ProjectCard = ({ project }) => (
@@ -168,7 +193,7 @@ const Projects = () => {
         </div>
 
         {/* Featured Projects */}
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
+        <div className="grid md:grid-cols-3 gap-8 mb-12">
           {featuredProjects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}

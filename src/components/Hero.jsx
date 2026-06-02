@@ -6,15 +6,24 @@ const Hero = () => {
     document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const downloadResume = () => {
+    const link = document.createElement("a");
+    link.href = "/Portfolio/Grandhi_Nithyasai_Resume.pdf";
+    link.download = "Grandhi_Nithyasai_Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-teal-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 transition-colors duration-300 pt-20"
+      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-teal-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900 transition-colors duration-300 pt-20"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="animate-fade-in-up flex flex-col items-center">
           <img
-            src="/Portfolio/latest.jpg" // Profile image in public folder with base path
+            src="/Portfolio/latest.jpg"
             alt="Profile"
             className="w-40 h-40 rounded-full object-cover mb-6 shadow-lg border-indigo-600 border-4"
           />
@@ -27,33 +36,42 @@ const Hero = () => {
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Front End Developer passionate about creating beautiful, functional
-            web experiences that make a difference in people's lives.
+            Front End Developer passionate about creating beautiful,
+            functional web experiences that make a difference in people's lives.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <button
-              onClick={() =>
-                document
-                  .getElementById("contact")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
-              className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
-            >
-              Get In Touch
-            </button>
-            <button
-              onClick={() =>
-                document
-                  .getElementById("projects")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
-              className="border-2 border-blue-600 text-blue-600 dark:text-white dark:border-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 dark:hover:bg-white hover:text-white dark:hover:text-blue-700 transition-all duration-200"
-            >
-              View My Work
-            </button>
-          </div>
 
+          <button
+            onClick={() =>
+              document.getElementById("contact")?.scrollIntoView({
+                behavior: "smooth",
+              })
+            }
+            className="bg-blue-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-blue-700 hover:-translate-y-1 transition-all duration-300 shadow-lg hover:shadow-blue-500/25"
+          >
+            Get In Touch
+          </button>
+
+          <button
+            onClick={() =>
+              document.getElementById("projects")?.scrollIntoView({
+                behavior: "smooth",
+              })
+            }
+            className="bg-white dark:bg-gray-800 text-gray-800 dark:text-white border border-gray-300 dark:border-gray-600 px-8 py-3 rounded-xl font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 hover:-translate-y-1 transition-all duration-300 shadow-md"
+          >
+            View My Work
+          </button>
+
+          <button
+            onClick={downloadResume}
+            className="bg-emerald-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-emerald-700 hover:-translate-y-1 transition-all duration-300 shadow-lg hover:shadow-emerald-500/25"
+          >
+            Download Resume
+          </button>
+
+        </div>
           <div className="flex justify-center space-x-6 mb-16">
             <a
               href="https://github.com/nithyasai05"
@@ -63,6 +81,7 @@ const Hero = () => {
             >
               <Github size={24} />
             </a>
+
             <a
               href="https://www.linkedin.com/in/nithyasai05/"
               target="_blank"
@@ -71,6 +90,7 @@ const Hero = () => {
             >
               <Linkedin size={24} />
             </a>
+
             <a
               href="mailto:nithyasai5a@gmail.com"
               className="p-3 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-200 text-gray-700 dark:text-white hover:text-blue-600 dark:hover:text-blue-400"
