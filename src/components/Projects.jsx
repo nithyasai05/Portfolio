@@ -1,5 +1,6 @@
 import React from "react";
 import { ExternalLink, Github } from "lucide-react";
+import Reveal from './Reveal';
 
 const Projects = () => {
   const projects = [
@@ -125,107 +126,130 @@ const Projects = () => {
 
   ];
 
-  const ProjectCard = ({ project }) => (
-    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg dark:shadow-md overflow-hidden hover:shadow-2xl dark:hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+  const ProjectCard = ({ project, delay = 0 }) => (
+    <Reveal as="article" className="glass-card group flex h-full flex-col overflow-hidden rounded-[1.8rem] transition-all duration-300 hover:-translate-y-2" delay={delay} variant="scale">
       <div className="relative overflow-hidden">
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-48 object-cover transition-transform duration-300 hover:scale-110"
+          className="h-52 w-full object-cover transition-transform duration-500 group-hover:scale-105 sm:h-56"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
-          <div className="p-4 flex space-x-3">
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/55 via-slate-950/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100"></div>
+        <div className="absolute inset-x-4 bottom-4 flex justify-end opacity-0 translate-y-3 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100">
+          <div className="flex gap-2 rounded-2xl bg-slate-950/55 px-3 py-2 backdrop-blur-md">
             <a
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white/90 dark:bg-gray-700 p-2 rounded-full hover:bg-white dark:hover:bg-gray-600 transition-colors"
+              className="rounded-full bg-white/90 p-2 text-slate-800 transition-colors hover:bg-white"
+              aria-label={`Open ${project.title} live`}
             >
-              <ExternalLink size={16} className="text-gray-700 dark:text-white" />
+              <ExternalLink size={16} />
             </a>
             <a
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white/90 dark:bg-gray-700 p-2 rounded-full hover:bg-white dark:hover:bg-gray-600 transition-colors"
+              className="rounded-full bg-white/90 p-2 text-slate-800 transition-colors hover:bg-white"
+              aria-label={`Open ${project.title} source`}
             >
-              <Github size={16} className="text-gray-700 dark:text-white" />
+              <Github size={16} />
             </a>
           </div>
         </div>
       </div>
 
-      <div className="p-6">
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
         <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
           {project.title}
         </h3>
-        <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+        <p className="text-gray-600 dark:text-gray-300 mb-5 leading-7 text-sm sm:text-base flex-1">
           {project.description}
         </p>
 
-        <div className="flex flex-wrap gap-2">
+        <div className="mb-5 flex flex-wrap gap-2">
           {project.technologies.map((tech) => (
             <span
               key={tech}
-              className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-sm font-medium"
+              className="pill-tag px-3 py-1 rounded-full text-sm font-medium"
             >
               {tech}
             </span>
           ))}
         </div>
+
+        <div className="mt-auto flex flex-col gap-3 sm:flex-row">
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-2xl bg-sky-600 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-sky-700"
+          >
+            <ExternalLink size={16} />
+            Live Demo
+          </a>
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-2xl border border-slate-200 px-4 py-3 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-50 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-900"
+          >
+            <Github size={16} />
+            Source Code
+          </a>
+        </div>
       </div>
-    </div>
+    </Reveal>
   );
 
   const featuredProjects = projects.filter((project) => project.featured);
   const otherProjects = projects.filter((project) => !project.featured);
 
   return (
-    <section id="projects" className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+    <section id="projects" className="py-16 sm:py-20 bg-transparent transition-colors duration-300">
+      <div className="section-shell max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-tight">
+        <Reveal className="text-center mb-16">
+          <span className="section-kicker mb-4">Projects</span>
+          <h2 className="section-title text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             Featured Projects
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="section-copy text-base sm:text-xl max-w-3xl mx-auto">
             A showcase of my recent work and personal projects
           </p>
-        </div>
+        </Reveal>
 
-        {/* Featured Projects */}
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {featuredProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+        <div className="grid gap-5 lg:grid-cols-3 mb-12">
+          {featuredProjects.map((project, index) => (
+            <ProjectCard key={project.id} project={project} delay={index * 90} />
           ))}
         </div>
 
-        {/* Other Projects */}
         {otherProjects.length > 0 && (
           <>
-            <div className="text-center mb-12">
+            <Reveal className="text-center mb-12" delay={60}>
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                 More Projects
               </h3>
-            </div>
-            <div className="grid md:grid-cols-2 gap-8">
-              {otherProjects.map((project) => (
-                <ProjectCard key={project.id} project={project} />
+            </Reveal>
+            <div className="grid gap-5 lg:grid-cols-2">
+              {otherProjects.map((project, index) => (
+                <ProjectCard key={project.id} project={project} delay={index * 90} />
               ))}
             </div>
           </>
         )}
 
-        <div className="text-center mt-12">
+        <Reveal className="text-center mt-12" delay={100}>
           <a
             href="https://github.com/nithyasai05/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+            className="inline-flex items-center rounded-2xl border border-slate-200 bg-white/80 px-6 py-3 font-semibold text-slate-700 shadow-lg shadow-slate-200/30 transition-colors hover:bg-white dark:border-slate-700 dark:bg-slate-900/70 dark:text-white dark:shadow-black/20 dark:hover:bg-slate-900"
           >
             <Github className="mr-2" size={20} />
             View More on GitHub
           </a>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

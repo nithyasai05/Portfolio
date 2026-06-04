@@ -1,5 +1,6 @@
 import React from "react";
 import { Monitor, Server, Wrench, Code2 } from "lucide-react";
+import Reveal from './Reveal';
 
 const Skills = () => {
   const skills = [
@@ -28,7 +29,7 @@ const Skills = () => {
   
 
   const Badge = ({ children }) => (
-    <span className="inline-block bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 px-3 py-1 rounded-full mr-3 mb-3 text-sm">
+    <span className="pill-tag inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium">
       {children}
     </span>
   );
@@ -36,75 +37,76 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300"
+      className="py-16 sm:py-20 bg-transparent transition-colors duration-300"
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+      <div className="section-shell max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-tight">
+        <Reveal className="text-center mb-16">
+          <span className="section-kicker mb-4">Stack</span>
+          <h2 className="section-title text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             Skills & Expertise
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="section-copy text-base sm:text-xl max-w-3xl mx-auto">
             Technologies and tools I use to bring ideas to life
           </p>
-        </div>
+        </Reveal>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid gap-5 md:grid-cols-2">
 
-          <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg dark:shadow-md">
+          <Reveal className="glass-card rounded-[1.75rem] p-6 sm:p-8" delay={30}>
             <div className="flex items-center gap-3 mb-6">
               <Monitor className="text-blue-500" size={28} />
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
                 Frontend
               </h3>
             </div>
-            <div>
+            <div className="flex flex-wrap gap-2">
               {frontendSkills.map((skill) => (
                 <Badge key={skill.name}>{skill.name}</Badge>
               ))}
             </div>
-          </div>
+          </Reveal>
 
-          <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg dark:shadow-md">
+          <Reveal className="glass-card rounded-[1.75rem] p-6 sm:p-8" delay={100}>
             <div className="flex items-center gap-3 mb-6">
               <Server className="text-teal-500" size={28} />
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
                 Backend
               </h3>
             </div>
-            <div>
+            <div className="flex flex-wrap gap-2">
               {backendSkills.map((skill) => (
                 <Badge key={skill.name}>{skill.name}</Badge>
               ))}
             </div>
-          </div>
+          </Reveal>
 
-          <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg dark:shadow-md">
+          <Reveal className="glass-card rounded-[1.75rem] p-6 sm:p-8" delay={170}>
             <div className="flex items-center gap-3 mb-6">
               <Wrench className="text-purple-500" size={28} />
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
                 Tools
               </h3>
             </div>
-            <div>
+            <div className="flex flex-wrap gap-2">
               {toolSkills.map((skill) => (
                 <Badge key={skill.name}>{skill.name}</Badge>
               ))}
             </div>
-          </div>
+          </Reveal>
 
-          <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg dark:shadow-md ">
+          <Reveal className="glass-card rounded-[1.75rem] p-6 sm:p-8" delay={240}>
             <div className="flex items-center gap-3 mb-6">
               <Code2 className="text-red-500" size={28} />
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
                 Programming Languages
               </h3>
             </div>
-            <div>
+            <div className="flex flex-wrap gap-2">
               {programmingSkills.map((skill) => (
                 <Badge key={skill.name}>{skill.name}</Badge>
               ))}
             </div>
-          </div>
+          </Reveal>
 
         </div>
       </div>

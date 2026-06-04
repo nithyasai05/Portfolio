@@ -1,5 +1,6 @@
 import React from 'react';
 import { Calendar, MapPin } from 'lucide-react';
+import Reveal from './Reveal';
 
 const Experience = () => {
   const experiences = [
@@ -12,7 +13,7 @@ const Experience = () => {
       description: [
         'Completed a 1-year Boot camp: 3 months focused on Python and DSA, followed by 7 months on frontend development.',
         'Gained hands-on experience with modern frameworks and tools used in frontend development.',
-        'Improved application performance by 40% through optimization and caching strategiesBuilt 12+ projects in 3 months, including an E-Commerce site, Movie Search App, and Task Manager.',
+        'Improved application performance by 40% through optimization and caching strategies, while building 12+ projects in 3 months including an e-commerce site, movie search app, and task manager.',
         'Led a team of 20 members, mentoring them in JavaScript, React.js, DSA, and Python.'
       ],
       technologies: ['React', 'Node.js', 'PostgreSQL', 'AWS', 'Docker']
@@ -34,61 +35,60 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+    <section id="experience" className="py-16 sm:py-20 bg-transparent transition-colors duration-300">
+      <div className="section-shell max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-tight">
+        <Reveal className="text-center mb-16">
+          <span className="section-kicker mb-4">Experience</span>
+          <h2 className="section-title text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             Work Experience
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="section-copy text-base sm:text-xl max-w-3xl mx-auto">
             My professional journey and the impact I've made along the way
           </p>
-        </div>
+        </Reveal>
 
         <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-0.5 h-full bg-blue-200 dark:bg-blue-700"></div>
+          <div className="absolute left-5 top-0 h-full w-px bg-sky-200 dark:bg-sky-900 md:left-1/2 md:-translate-x-1/2"></div>
 
           {experiences.map((exp, index) => (
             <div
               key={exp.id}
-              className={`relative flex items-center mb-12 ${
+              className={`relative flex items-center mb-10 md:mb-12 ${
                 index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
               }`}
             >
-              {/* Timeline dot */}
-              <div className="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-600 rounded-full border-4 border-white dark:border-gray-900 shadow-lg z-10"></div>
+              <div className="absolute left-5 z-10 h-4 w-4 -translate-x-1/2 rounded-full border-4 border-white bg-sky-600 shadow-lg dark:border-slate-950 md:left-1/2"></div>
 
-              {/* Content */}
               <div
-                className={`ml-12 md:ml-0 md:w-1/2 ${
-                  index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'
+                className={`ml-12 w-full md:ml-0 md:w-1/2 ${
+                  index % 2 === 0 ? 'md:pr-10 lg:pr-14' : 'md:pl-10 lg:pl-14'
                 }`}
               >
-                <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+                <Reveal className="glass-card rounded-[1.75rem] p-5 sm:p-7 transition-shadow duration-300" delay={index * 100}>
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-4">
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                       {exp.role}
                     </h3>
-                    <div className="flex items-center text-blue-600 dark:text-blue-400 font-semibold mt-1 sm:mt-0">
+                    <div className="flex items-center text-blue-600 dark:text-blue-400 font-semibold mt-1 sm:mt-0 text-sm sm:text-base">
                       <Calendar size={16} className="mr-1" />
                       {exp.period}
                     </div>
                   </div>
 
-                  <div className="flex items-center text-gray-600 dark:text-gray-300 mb-4">
+                  <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-gray-600 dark:text-gray-300 mb-4 text-sm sm:text-base">
                     <span className="font-semibold text-gray-800 dark:text-white">
                       {exp.company}
                     </span>
-                    <span className="mx-2">•</span>
+                    <span className="hidden sm:inline">•</span>
                     <MapPin size={14} className="mr-1" />
                     {exp.location}
                   </div>
 
                   <ul className="space-y-2 mb-4">
                     {exp.description.map((item, itemIndex) => (
-                      <li key={itemIndex} className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                        • {item}
+                      <li key={itemIndex} className="flex gap-3 text-gray-600 dark:text-gray-300 leading-7 text-sm sm:text-base">
+                        <span className="mt-2 h-2 w-2 rounded-full bg-sky-500 shrink-0"></span>
+                        <span>{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -97,13 +97,13 @@ const Experience = () => {
                     {exp.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="bg-blue-100 dark:bg-blue-800 text-blue-800 dark:text-blue-100 px-3 py-1 rounded-full text-sm font-medium"
+                        className="pill-tag px-3 py-1 rounded-full text-sm font-medium"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
-                </div>
+                </Reveal>
               </div>
             </div>
           ))}

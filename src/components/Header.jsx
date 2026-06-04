@@ -15,11 +15,23 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
+    const storedTheme = window.localStorage.getItem('portfolio-theme');
+    if (storedTheme) {
+      setDarkMode(storedTheme === 'dark');
+      return;
+    }
+
+    setDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
+  }, []);
+
+  useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
+
+    window.localStorage.setItem('portfolio-theme', darkMode ? 'dark' : 'light');
   }, [darkMode]);
 
   const scrollToSection = (sectionId) => {
@@ -33,74 +45,83 @@ const Header = () => {
   const navItems = [
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
-    { id: 'skills', label: 'Skills' },
     { id: 'education', label: 'Education' },
-    { id: 'projects', label: 'Projects' },
+    { id: 'skills', label: 'Skills' },
     { id: 'experience', label: 'Experience' },
+    { id: 'projects', label: 'Projects' },
     { id: 'contact', label: 'Contact' },
   ];
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       scrolled
-        ? 'bg-white/95 dark:bg-gray-900/90 backdrop-blur-sm shadow-lg'
+        ? 'bg-white/8 dark:bg-slate-950/18 backdrop-blur-2xl shadow-lg shadow-slate-900/5 border-b border-white/20 dark:border-white/10'
         : 'bg-transparent'
     }`}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-tight">
+        <div className="flex justify-between items-center py-3 sm:py-4 gap-3">
           <button
             onClick={() => scrollToSection('home')}
-            className="text-2xl font-bold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+            className="inline-flex items-center gap-3 text-left"
           >
-            NS
+            <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 via-sky-500 to-teal-400 text-base font-extrabold text-white shadow-lg shadow-blue-500/20">
+              NS
+            </span>
+            <span className="hidden sm:block">
+              <span className="block text-sm font-semibold uppercase tracking-[0.35em] text-sky-600 dark:text-sky-300">
+                Portfolio
+              </span>
+              <span className="block text-lg font-bold text-slate-900 dark:text-white">
+                Grandhi Nithyasai
+              </span>
+            </span>
           </button>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
+          <nav className="hidden lg:flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-2 shadow-lg shadow-slate-200/10 backdrop-blur-2xl dark:border-white/10 dark:bg-slate-950/20 dark:shadow-black/20">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium"
+                className="rounded-full px-3 py-2 text-sm font-semibold text-slate-700 transition-colors hover:bg-white/25 hover:text-sky-600 dark:text-slate-200 dark:hover:bg-white/10 dark:hover:text-sky-300"
               >
                 {item.label}
               </button>
             ))}
-            {/* Dark Mode Toggle Icon */}
             <button
               onClick={() => setDarkMode(!darkMode)}
-              className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 transition-colors"
+              className="ml-2 rounded-full bg-white/20 p-2.5 text-slate-800 transition-colors hover:bg-white/35 dark:bg-white/10 dark:text-slate-100 dark:hover:bg-white/15"
               title="Toggle dark mode"
             >
               {darkMode ? <Sun size={18} /> : <Moon size={18} />}
             </button>
           </nav>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            className="lg:hidden rounded-2xl border border-white/25 bg-white/10 p-3 text-slate-700 shadow-lg shadow-slate-200/10 backdrop-blur-2xl transition-colors hover:text-sky-600 dark:border-white/10 dark:bg-slate-950/20 dark:text-slate-200 dark:shadow-black/20 dark:hover:text-sky-300"
+            aria-label="Toggle navigation menu"
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
-        {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden py-4 border-t border-gray-200 dark:border-gray-700 bg-white/95 dark:bg-gray-900/90 backdrop-blur-sm space-y-2">
+          <nav className="lg:hidden mb-3 rounded-3xl border border-white/25 bg-white/12 p-3 shadow-2xl shadow-slate-200/10 backdrop-blur-2xl dark:border-white/10 dark:bg-slate-950/24 dark:shadow-black/30">
+            <div className="space-y-1">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="block w-full text-left py-2 px-4 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors font-medium"
+                className="block w-full rounded-2xl px-4 py-3 text-left text-base font-semibold text-slate-700 transition-colors hover:bg-white/25 hover:text-sky-600 dark:text-slate-200 dark:hover:bg-white/10 dark:hover:text-sky-300"
               >
                 {item.label}
               </button>
             ))}
-            <div className="px-4 pt-2">
+            </div>
+            <div className="pt-3">
               <button
                 onClick={() => setDarkMode(!darkMode)}
-                className="w-full flex items-center justify-center gap-2 py-2 rounded bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 transition"
+                className="flex w-full items-center justify-center gap-2 rounded-2xl bg-white/20 py-3 text-sm font-semibold text-slate-800 transition hover:bg-white/30 dark:bg-white/10 dark:text-slate-100 dark:hover:bg-white/15"
               >
                 {darkMode ? <Sun size={18} /> : <Moon size={18} />}
                 {darkMode ? 'Light Mode' : 'Dark Mode'}

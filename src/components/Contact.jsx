@@ -1,6 +1,7 @@
 import emailjs from "@emailjs/browser";
 import React, { useState } from "react";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
+import Reveal from './Reveal';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -57,28 +58,28 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300"
+      className="py-16 sm:py-20 bg-transparent transition-colors duration-300"
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+      <div className="section-shell max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-tight">
+        <Reveal className="text-center mb-16">
+          <span className="section-kicker mb-4">Contact</span>
+          <h2 className="section-title text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             Get In Touch
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="section-copy text-base sm:text-xl max-w-3xl mx-auto">
             Have a project in mind or just want to chat? I'd love to hear from
             you!
           </p>
-        </div>
+        </Reveal>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Info */}
-          <div>
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
+          <Reveal className="glass-card rounded-[2rem] p-6 sm:p-8" variant="left">
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
               Let's Connect
             </h3>
 
             <div className="space-y-6">
-              <div className="flex items-center">
+              <div className="flex items-center gap-4 rounded-2xl bg-white/60 p-4 dark:bg-slate-900/60">
                 <div className="bg-blue-100 dark:bg-blue-800 p-3 rounded-lg mr-4">
                   <Mail
                     className="text-blue-600 dark:text-blue-200"
@@ -95,7 +96,7 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="flex items-center">
+              <div className="flex items-center gap-4 rounded-2xl bg-white/60 p-4 dark:bg-slate-900/60">
                 <div className="bg-teal-100 dark:bg-teal-800 p-3 rounded-lg mr-4">
                   <Phone
                     className="text-teal-600 dark:text-teal-200"
@@ -112,7 +113,7 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="flex items-center">
+              <div className="flex items-center gap-4 rounded-2xl bg-white/60 p-4 dark:bg-slate-900/60">
                 <div className="bg-purple-100 dark:bg-purple-800 p-3 rounded-lg mr-4">
                   <MapPin
                     className="text-purple-600 dark:text-purple-200"
@@ -130,7 +131,7 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-teal-50 dark:from-blue-900 dark:to-teal-900 rounded-xl">
+            <div className="mt-8 rounded-[1.75rem] bg-gradient-to-r from-blue-50 to-teal-50 p-6 dark:from-slate-900 dark:to-slate-800">
               <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
                 Available for Opportunities
               </h4>
@@ -141,10 +142,9 @@ const Contact = () => {
                 work together.
               </p>
             </div>
-          </div>
+          </Reveal>
 
-          {/* Contact Form */}
-          <div>
+          <Reveal className="glass-card rounded-[2rem] p-6 sm:p-8" variant="right" delay={100}>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid sm:grid-cols-2 gap-6">
                 <div>
@@ -161,7 +161,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                    className="w-full rounded-2xl border border-gray-300 bg-white/90 px-4 py-3 text-gray-900 transition-colors focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:border-gray-600 dark:bg-slate-900/80 dark:text-white"
                     placeholder="Your name"
                   />
                 </div>
@@ -179,7 +179,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                    className="w-full rounded-2xl border border-gray-300 bg-white/90 px-4 py-3 text-gray-900 transition-colors focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:border-gray-600 dark:bg-slate-900/80 dark:text-white"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -199,7 +199,7 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                  className="w-full rounded-2xl border border-gray-300 bg-white/90 px-4 py-3 text-gray-900 transition-colors focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:border-gray-600 dark:bg-slate-900/80 dark:text-white"
                   placeholder="What's this about?"
                 />
               </div>
@@ -218,7 +218,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows={6}
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none"
+                  className="w-full resize-none rounded-2xl border border-gray-300 bg-white/90 px-4 py-3 text-gray-900 transition-colors focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:border-gray-600 dark:bg-slate-900/80 dark:text-white"
                   placeholder="Tell me about your project or just say hello!"
                 />
               </div>
@@ -226,7 +226,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center"
+                className="flex w-full min-h-12 items-center justify-center rounded-2xl bg-sky-600 px-8 py-3 font-semibold text-white transition-colors hover:bg-sky-700 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 {isSubmitting ? (
                   <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
@@ -238,7 +238,7 @@ const Contact = () => {
                 )}
               </button>
             </form>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>
