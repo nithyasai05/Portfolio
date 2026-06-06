@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Github, Linkedin, Mail, ArrowDown, X, Download, Sparkles, MapPin, Briefcase } from "lucide-react";
+import { Github, Linkedin, Mail, ArrowDown, X, Download, Sparkles, MapPin } from "lucide-react";
 import Reveal from './Reveal';
 
 const Hero = () => {
@@ -36,30 +36,26 @@ const Hero = () => {
       className="scroll-mt-24 bg-transparent px-0 transition-colors duration-300"
     >
       <div className="section-shell mx-auto flex min-h-[calc(100svh-5rem)] w-full max-w-7xl box-border items-start px-4 pb-6 pt-24 sm:px-6 sm:pb-8 sm:pt-28 lg:items-center lg:px-8 lg:pb-4 mobile-tight">
-        <div className="hero-grid hero-stage w-full gap-8 lg:gap-10">
-          <Reveal className="w-full text-center lg:text-left" variant="left">
-            <span className="section-kicker mb-6">
-              <Sparkles size={14} />
-              Welcome to My Portfolio
-            </span>
-            <h1 className="section-title text-4xl font-bold leading-tight text-slate-950 dark:text-white sm:text-5xl md:text-6xl xl:text-7xl">
+        <div className="hero-grid hero-stage w-full gap-6 sm:gap-8 lg:gap-10">
+          <Reveal className="order-2 mx-auto w-full max-w-2xl text-center lg:order-1 lg:mx-0 lg:max-w-none lg:text-left" variant="left">
+            <h1 className="section-title text-3xl font-bold leading-tight text-slate-950 dark:text-white sm:text-5xl md:text-6xl xl:text-7xl">
               Building responsive interfaces with
               <span className="block bg-gradient-to-r from-blue-600 via-sky-500 to-teal-500 bg-clip-text text-transparent">
                 clarity, motion, and polish.
               </span>
             </h1>
 
-            <p className="section-copy mt-6 max-w-2xl text-base leading-8 text-slate-600 dark:text-slate-300 sm:text-lg lg:mx-0 mx-auto">
+            <p className="section-copy mx-auto mt-4 max-w-xl text-sm leading-7 text-slate-600 dark:text-slate-300 sm:mt-6 sm:max-w-2xl sm:text-lg sm:leading-8 lg:mx-0">
               I'm Grandhi Nithyasai, an aspiring Full Stack Developer dedicated to transforming ideas into efficient, user-focused, and impactful digital experiences.              
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start">
+            <div className="mt-6 grid gap-3 sm:mt-8 sm:flex sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start">
               <button
                 onClick={() =>
                   document.getElementById("contact")?.scrollIntoView({
                     behavior: "smooth",
                   })
                 }
-                className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-sky-600 px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-sky-500/25 transition-all duration-300 hover:-translate-y-1 hover:bg-sky-700"
+                className="inline-flex min-h-12 w-full items-center justify-center rounded-2xl bg-sky-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-sky-500/25 transition-all duration-300 hover:-translate-y-1 hover:bg-sky-700 sm:w-auto sm:px-7"
               >
                 Get In Touch
               </button>
@@ -70,20 +66,20 @@ const Hero = () => {
                     behavior: "smooth",
                   })
                 }
-                className="inline-flex min-h-12 items-center justify-center rounded-2xl border border-slate-200 bg-white/70 px-7 py-3 text-sm font-semibold text-slate-800 shadow-lg shadow-slate-200/30 transition-all duration-300 hover:-translate-y-1 hover:bg-white dark:border-slate-700 dark:bg-slate-900/70 dark:text-white dark:shadow-black/20 dark:hover:bg-slate-900"
+                className="inline-flex min-h-12 w-full items-center justify-center rounded-2xl border border-slate-200 bg-white/70 px-6 py-3 text-sm font-semibold text-slate-800 shadow-lg shadow-slate-200/30 transition-all duration-300 hover:-translate-y-1 hover:bg-white dark:border-slate-700 dark:bg-slate-900/70 dark:text-white dark:shadow-black/20 dark:hover:bg-slate-900 sm:w-auto sm:px-7"
               >
                 View My Work
               </button>
 
               <button
                 onClick={downloadResume}
-                className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-emerald-600 px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 transition-all duration-300 hover:-translate-y-1 hover:bg-emerald-700"
+                className="inline-flex min-h-12 w-full items-center justify-center rounded-2xl bg-emerald-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20 transition-all duration-300 hover:-translate-y-1 hover:bg-emerald-700 sm:w-auto sm:px-7"
               >
                 Download Resume
               </button>
             </div>
 
-            <div className="mt-6 flex flex-wrap justify-center gap-4 lg:justify-start">
+            <div className="mt-5 flex flex-wrap justify-center gap-3 sm:mt-6 sm:gap-4 lg:justify-start">
               <a
                 href="https://github.com/nithyasai05"
                 target="_blank"
@@ -108,7 +104,7 @@ const Hero = () => {
               >
                 <Mail size={22} />
               </a>
-              <div className="glass-card flex items-center gap-3 rounded-2xl px-3 py-1 text-left">
+              <div className="glass-card flex w-full max-w-[15rem] items-center justify-center gap-3 rounded-2xl px-3 py-2 text-left sm:w-auto sm:max-w-none sm:justify-start sm:py-1">
                 <MapPin className="text-sky-500" size={18} />
                 <div>
                   <p className="text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Based In</p>
@@ -119,40 +115,44 @@ const Hero = () => {
 
             <button
               onClick={scrollToAbout}
-              className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-slate-500 transition-colors hover:text-sky-600 dark:text-slate-400 dark:hover:text-sky-300"
+              className="mt-6 inline-flex items-center justify-center gap-2 text-sm font-semibold text-slate-500 transition-colors hover:text-sky-600 dark:text-slate-400 dark:hover:text-sky-300 sm:mt-8 lg:justify-start"
             >
               Explore portfolio
               <ArrowDown size={18} className="animate-bounce" />
             </button>
           </Reveal>
 
-          <Reveal className="w-full lg:max-w-xl lg:justify-self-end" variant="right" delay={140}>
-            <div className="glass-card relative overflow-hidden rounded-[2rem] p-6 sm:p-8">
+          <Reveal className="order-1 mx-auto w-full max-w-sm lg:order-2 lg:mx-0 lg:max-w-xl lg:justify-self-end" variant="right" delay={140}>
+            <div className="glass-card relative overflow-hidden rounded-[2rem] p-5 sm:p-8">
               <div className="hero-orbit"></div>
               <div className="hero-orbit hero-orbit--inner"></div>
               <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-r from-sky-500/20 via-blue-500/10 to-teal-400/20" />
               <div className="relative flex flex-col items-center text-center">
+                <span className="section-kicker mb-5 sm:mb-6">
+                  <Sparkles size={14} />
+                  Welcome to My Portfolio
+                </span>
                 <div className="relative group cursor-pointer" onClick={() => setShowDownloadModal(true)}>
                   <img
                     src="/Portfolio/latest.jpg"
                     alt="Profile"
-                    className="animate-float-gentle h-40 w-40 rounded-[2rem] object-cover border-4 border-white/70 shadow-2xl shadow-sky-500/20 transition-transform duration-300 group-hover:scale-[1.03] sm:h-48 sm:w-48 dark:border-slate-700"
+                    className="animate-float-gentle h-36 w-36 rounded-[2rem] object-cover border-4 border-white/70 shadow-2xl shadow-sky-500/20 transition-transform duration-300 group-hover:scale-[1.03] sm:h-48 sm:w-48 dark:border-slate-700"
                   />
                   <div className="absolute inset-0 flex items-center justify-center rounded-[2rem] bg-slate-950/45 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                     <Download className="h-6 w-6 text-white" />
                   </div>
                 </div>
 
-                <div className="mt-6">
-                  <p className="text-xl font-bold uppercase tracking-[0.2em] text-sky-600 dark:text-sky-300">
+                <div className="mt-5 sm:mt-6">
+                  <p className="text-base font-bold uppercase tracking-[0.18em] text-sky-600 dark:text-sky-300 sm:text-xl sm:tracking-[0.2em]">
                     Frontend and UI Developer
                   </p>
-                  <p className="mt-3 text-sm font-bold text-slate-900 dark:text-white sm:text-xl">
+                  <p className="mt-2 text-sm font-bold text-slate-900 dark:text-white sm:mt-3 sm:text-xl">
                     Designing crisp, usable interfaces.
                   </p>
                 </div>
 
-                <div className="mt-6 grid w-full gap-3 sm:grid-cols-2">
+                <div className="mt-5 grid w-full grid-cols-2 gap-2 sm:mt-6 sm:gap-3">
                   <div className="rounded-2xl bg-white/70 p-4 dark:bg-slate-900/70">
                     <p className="text-2xl font-bold text-slate-900 dark:text-white">10+</p>
                     <p className="mt-1 text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Projects</p>
