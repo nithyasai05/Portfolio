@@ -33,16 +33,15 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center bg-transparent transition-colors duration-300 px-0 pt-24 sm:pt-28"
+      className="scroll-mt-24 bg-transparent px-0 transition-colors duration-300"
     >
-      <div className="section-shell max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-tight w-full">
-        <div className="hero-grid hero-stage">
-          <Reveal className="text-center lg:text-left" variant="left">
+      <div className="section-shell mx-auto flex min-h-[calc(100svh-5rem)] w-full max-w-7xl box-border items-start px-4 pb-6 pt-24 sm:px-6 sm:pb-8 sm:pt-28 lg:items-center lg:px-8 lg:pb-4 mobile-tight">
+        <div className="hero-grid hero-stage w-full gap-8 lg:gap-10">
+          <Reveal className="w-full text-center lg:text-left" variant="left">
             <span className="section-kicker mb-6">
               <Sparkles size={14} />
-              Frontend Developer
+              Welcome to My Portfolio
             </span>
-
             <h1 className="section-title text-4xl font-bold leading-tight text-slate-950 dark:text-white sm:text-5xl md:text-6xl xl:text-7xl">
               Building responsive interfaces with
               <span className="block bg-gradient-to-r from-blue-600 via-sky-500 to-teal-500 bg-clip-text text-transparent">
@@ -51,27 +50,9 @@ const Hero = () => {
             </h1>
 
             <p className="section-copy mt-6 max-w-2xl text-base leading-8 text-slate-600 dark:text-slate-300 sm:text-lg lg:mx-0 mx-auto">
-              I'm Grandhi Nithyasai, a frontend-focused developer creating fast, modern portfolio sites and web experiences that feel clean on mobile, sharp on desktop, and intuitive everywhere.
+              I'm Grandhi Nithyasai, an aspiring Full Stack Developer dedicated to transforming ideas into efficient, user-focused, and impactful digital experiences.              
             </p>
-
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
-              <div className="glass-card flex items-center gap-3 rounded-2xl px-4 py-3 text-left">
-                <MapPin className="text-sky-500" size={18} />
-                <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Based In</p>
-                  <p className="text-sm font-semibold text-slate-900 dark:text-white">Andhra Pradesh, India</p>
-                </div>
-              </div>
-              <div className="glass-card flex items-center gap-3 rounded-2xl px-4 py-3 text-left">
-                <Briefcase className="text-teal-500" size={18} />
-                <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Open To</p>
-                  <p className="text-sm font-semibold text-slate-900 dark:text-white">Internships and junior roles</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start">
               <button
                 onClick={() =>
                   document.getElementById("contact")?.scrollIntoView({
@@ -102,7 +83,7 @@ const Hero = () => {
               </button>
             </div>
 
-            <div className="mt-8 flex flex-wrap justify-center gap-4 lg:justify-start">
+            <div className="mt-6 flex flex-wrap justify-center gap-4 lg:justify-start">
               <a
                 href="https://github.com/nithyasai05"
                 target="_blank"
@@ -127,18 +108,25 @@ const Hero = () => {
               >
                 <Mail size={22} />
               </a>
+              <div className="glass-card flex items-center gap-3 rounded-2xl px-3 py-1 text-left">
+                <MapPin className="text-sky-500" size={18} />
+                <div>
+                  <p className="text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Based In</p>
+                  <p className="text-sm font-semibold text-slate-900 dark:text-white">Andhra Pradesh, India</p>
+                </div>
+              </div>
             </div>
 
             <button
               onClick={scrollToAbout}
-              className="mt-12 inline-flex items-center gap-2 text-sm font-semibold text-slate-500 transition-colors hover:text-sky-600 dark:text-slate-400 dark:hover:text-sky-300"
+              className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-slate-500 transition-colors hover:text-sky-600 dark:text-slate-400 dark:hover:text-sky-300"
             >
               Explore portfolio
               <ArrowDown size={18} className="animate-bounce" />
             </button>
           </Reveal>
 
-          <Reveal className="lg:justify-self-end" variant="right" delay={140}>
+          <Reveal className="w-full lg:max-w-xl lg:justify-self-end" variant="right" delay={140}>
             <div className="glass-card relative overflow-hidden rounded-[2rem] p-6 sm:p-8">
               <div className="hero-orbit"></div>
               <div className="hero-orbit hero-orbit--inner"></div>
@@ -156,14 +144,11 @@ const Hero = () => {
                 </div>
 
                 <div className="mt-6">
-                  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-sky-600 dark:text-sky-300">
+                  <p className="text-xl font-bold uppercase tracking-[0.2em] text-sky-600 dark:text-sky-300">
                     Frontend and UI Developer
                   </p>
-                  <h2 className="mt-3 text-2xl font-bold text-slate-900 dark:text-white sm:text-3xl">
+                  <p className="mt-3 text-sm font-bold text-slate-900 dark:text-white sm:text-xl">
                     Designing crisp, usable interfaces.
-                  </h2>
-                  <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300 sm:text-base">
-                    Focused on modern React projects, polished UI systems, and responsive layouts that feel reliable on every screen size.
                   </p>
                 </div>
 

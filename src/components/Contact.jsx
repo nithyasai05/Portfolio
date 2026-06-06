@@ -132,14 +132,12 @@ const Contact = () => {
             </div>
 
             <div className="mt-8 rounded-[1.75rem] bg-gradient-to-r from-blue-50 to-teal-50 p-6 dark:from-slate-900 dark:to-slate-800">
-              <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-                Available for Opportunities
+             <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                My Approach
               </h4>
+
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                I'm currently open to new opportunities and interesting
-                projects. Whether you're looking for a full-time developer or
-                need help with a freelance project, let's discuss how we can
-                work together.
+                Every project is an opportunity to learn, improve, and create something meaningful. I enjoy transforming ideas into functional digital experiences through thoughtful design, efficient development, and attention to detail.
               </p>
             </div>
           </Reveal>

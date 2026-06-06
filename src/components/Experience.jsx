@@ -6,6 +6,28 @@ const Experience = () => {
   const experiences = [
     {
       id: 1,
+      company: 'Dreamlanes Innovation Private Limited',
+      role: 'Business Development Intern',
+      period: 'Aug 2025 - Dec 2025',
+      location: 'Tirupati, Andhra Pradesh',
+      description: [
+        'Completed a professional internship while contributing to business operations and organizational initiatives.',
+        'Worked closely with team members to coordinate tasks, track progress, and support project execution.',
+        'Strengthened communication, analytical thinking, and problem-solving abilities through real-world business scenarios.',
+        'Demonstrated professionalism, adaptability, and effective time management while handling multiple responsibilities.',
+        'Earned recognition for dedication, teamwork, and a continuous learning mindset.'
+      ],
+      technologies: [
+        'Communication',
+        'Problem Solving',
+        'Teamwork',
+        'Leadership',
+        'Time Management'
+      ]
+    },
+
+    {
+      id: 2,
       company: 'Joining The Dots',
       role: 'Intern [ Full Stack Developer ]',
       period: '2024 - 2025',
@@ -19,7 +41,7 @@ const Experience = () => {
       technologies: ['React', 'Node.js', 'PostgreSQL', 'AWS', 'Docker']
     },
     {
-      id: 2,
+      id: 3,
       company: 'Resolution Minds Software Solutions PVT LTD',
       role: 'Intern [ Frontend Developer ]',
       period: '2020 - 2022',
